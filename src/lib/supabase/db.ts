@@ -9,6 +9,7 @@ export type Subscription = {
 };
 
 const supabaseAdmin = createAdminClient();
+
 export class DB {
   static async createSubscription({
     email,

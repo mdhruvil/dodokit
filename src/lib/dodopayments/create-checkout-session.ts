@@ -51,6 +51,12 @@ export async function createCheckoutSession(
         email: data.user.email,
       },
       return_url: process.env.DODO_PAYMENTS_RETURN_URL,
+      allowed_payment_method_types: [
+        "credit",
+        "debit",
+        "upi_collect",
+        "upi_intent",
+      ],
     });
     return {
       success: true,
