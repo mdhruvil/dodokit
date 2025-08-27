@@ -112,5 +112,6 @@ To test the webhook handling, you can use a tool like [ngrok](httpss://ngrok.com
 
 ## Time Spent
 
-- I forgot to track the time spent on each feature :)
-- But it was likely around 7 hours altogether.
+- I left my VSCode open when I went for lunch (unintentionally). That's why Wakatime is showing that I have spent 40 minutes in `.env` file. Click on badge to view full time spent filewise.
+
+[![wakatime](https://wakatime.com/badge/user/018d823f-e19c-45bf-bce7-20ca9f2f3f55/project/453b14d2-3ec5-4921-9309-ac56063dfc2e.svg)](https://wakatime.com/@mdhruvil/projects/rildejbzhu)
