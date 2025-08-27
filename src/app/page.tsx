@@ -7,11 +7,10 @@ import {
   ArrowRightIcon,
   CodeIcon,
   LockIcon,
-  ZapIcon,
+  LucideIcon,
   PackageIcon,
+  ZapIcon,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { LucideIcon } from "lucide-react";
 import Link from "next/link";
 
 type FeatureCardProps = {

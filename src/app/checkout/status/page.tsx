@@ -1,12 +1,12 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-export default function CheckoutStatusPage() {
+function CheckoutStatusComponent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [timeLeft, setTimeLeft] = useState(3);
@@ -124,5 +124,13 @@ export default function CheckoutStatusPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+export default function CheckoutStatusPage() {
+  return (
+    <Suspense>
+      <CheckoutStatusComponent />
+    </Suspense>
   );
 }
