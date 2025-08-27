@@ -61,6 +61,7 @@ DodoKit is a lightweight boilerplate that makes it dead simple for developers to
    <p>Your OTP for DodoKit</p>
    <h1>{{ .Token }}</h1>
    ```
+7. Setup the webhooks. See this section [Webhooks](#webhooks)
 
 ### Running the Application
 
@@ -82,9 +83,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to see the a
 | `DODO_PAYMENTS_WEBHOOK_KEY`                    | The webhook key for your Dodo Payments account.                                                                      |
 | `DODO_PAYMENTS_RETURN_URL`                     | The return URL for your Dodo Payments account.                                                                       |
 
-## Testing
-
-### Firing Webhooks
+## Webhooks
 
 To test the webhook handling, you can use a tool like [ngrok](httpss://ngrok.com/) to expose your local development server to the internet.
 
@@ -100,9 +99,9 @@ To test the webhook handling, you can use a tool like [ngrok](httpss://ngrok.com
    ngrok http 3000
    ```
 
-3. In your Dodo Payments dashboard, set the webhook URL to the ngrok URL followed by `/api/webhook/dodo-payments`.
+3. In your Dodo Payments dashboard, set the webhook URL to the ngrok URL followed by `/api/webhook/dodo-payments` and copy the webhook secret from the webhook page and paste it in `.env`.
 
-4. Trigger a test payment or subscription event in your Dodo Payments dashboard.
+4. Trigger a test payment or subscription event in your Dodo Payments dashboard or from the application UI (i.e. `/dashboard` page).
 
 5. You should see the webhook captured in your terminal and the Supabase tables updated accordingly.
 
