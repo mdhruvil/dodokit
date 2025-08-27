@@ -59,10 +59,10 @@ export default function Home() {
           </div>
           <div>
             <h1 className="mb-6 text-2xl font-bold tracking-tight text-pretty lg:text-5xl">
-              DodoPayments + Supabase Boilerplate
+              Dodo Payments + Supabase Boilerplate
             </h1>
             <p className="text-muted-foreground mx-auto max-w-3xl lg:text-xl">
-              A complete Next.js boilerplate with DodoPayments integration and
+              A complete Next.js boilerplate with Dodo Payments integration and
               Supabase authentication. Everything you need to start building
               your subscription-based application.
             </p>
@@ -77,9 +77,9 @@ export default function Home() {
         </div>
         <div className="mx-auto grid max-w-6xl items-center border md:grid-cols-2 lg:grid-cols-4">
           <FeatureCard
-            title="DodoPayments Integration"
+            title="Dodo Payments Integration"
             icon={CodeIcon}
-            description="Pre-configured payment processing with DodoPayments API"
+            description="Pre-configured payment processing with Dodo Payments API"
           />
           <FeatureCard
             title="Supabase Auth"
