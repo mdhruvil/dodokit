@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { createUser } from "@/lib/dodopayments/create-user";
 import { sendOtp, verifyOtp } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { OTPInput } from "input-otp";
@@ -52,7 +53,10 @@ export function SignUpForm({
     try {
       const { error } = await verifyOtp(email, otp);
       if (error) throw error;
-      // TODO: create custom in payment processor
+
+      const result = await createUser();
+      if (!result.success) throw new Error(result.error);
+
       router.push("/protected");
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
