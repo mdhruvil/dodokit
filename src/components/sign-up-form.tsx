@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { createClient } from "@/lib/supabase/client";
+import { sendOtp, verifyOtp } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 import { OTPInput } from "input-otp";
 import Link from "next/link";
@@ -30,17 +30,11 @@ export function SignUpForm({
 
   const handleSendOtp = async (e: React.FormEvent) => {
     e.preventDefault();
-    const supabase = createClient();
     setIsLoading(true);
     setError(null);
 
     try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          shouldCreateUser: true,
-        },
-      });
+      const { error } = await sendOtp(email, "signup");
       if (error) throw error;
       setStep("otp");
     } catch (error: unknown) {
@@ -52,17 +46,13 @@ export function SignUpForm({
 
   const handleVerifyOtp = async (e: React.FormEvent) => {
     e.preventDefault();
-    const supabase = createClient();
     setIsLoading(true);
     setError(null);
 
     try {
-      const { error } = await supabase.auth.verifyOtp({
-        email,
-        token: otp,
-        type: "email",
-      });
+      const { error } = await verifyOtp(email, otp);
       if (error) throw error;
+      // TODO: create custom in payment processor
       router.push("/protected");
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
