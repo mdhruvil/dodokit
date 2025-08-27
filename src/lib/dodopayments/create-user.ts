@@ -1,17 +1,6 @@
 "use server";
-import DodoPayments from "dodopayments";
 import { createClient } from "../supabase/server";
-
-function createDodoPaymentsClient() {
-  const client = new DodoPayments({
-    bearerToken: process.env.DODO_PAYMENTS_API_KEY,
-    environment:
-      process.env.DODO_PAYMENTS_ENVIRONMENT === "test"
-        ? "test_mode"
-        : "live_mode",
-  });
-  return client;
-}
+import { createDodoPaymentsClient } from "./client";
 
 type CreateUserResult =
   | {
