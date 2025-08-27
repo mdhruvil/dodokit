@@ -55,6 +55,12 @@ DodoKit is a lightweight boilerplate that makes it dead simple for developers to
 6. Set up Supabase:
    - Create a new project in Supabase.
    - Push the database migration to supabase follow [this guide](https://supabase.com/docs/guides/deployment/database-migrations#deploy-your-project). This migration will create `user_subscriptions` table with the necessary fields and RLS policies.
+   - change the "Confirm Signup" and "Magic Link" templates in Supabase Auth settings to include the `{{.Token}}`
+   ```html
+   <h2>OTP</h2>
+   <p>Your OTP for DodoKit</p>
+   <h1>{{ .Token }}</h1>
+   ```
 
 ### Running the Application
 
