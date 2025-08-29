@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "supabase": "supabase"
+    "supabase": "supabase",
+    "run-function": "supabase functions serve --env-file .env"
   },
   "dependencies": {
     "@dodopayments/nextjs": "^0.1.8",
